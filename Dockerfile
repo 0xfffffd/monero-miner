@@ -3,7 +3,7 @@ FROM ubuntu:latest AS build
 ARG XMRIG_VERSION='v5.2.1'
 
 RUN apt-get update && apt-get install -y git build-essential cmake libuv1-dev libssl-dev libhwloc-dev
-RUN apt-get install sudo htop mc
+RUN apt-get install -y sudo htop mc
 WORKDIR /root
 RUN git clone https://github.com/xmrig/xmrig
 WORKDIR /root/xmrig
