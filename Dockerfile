@@ -20,6 +20,7 @@ RUN echo "monero:monero" | chpasswd && adduser monero sudo
 USER monero
 WORKDIR /home/monero
 COPY --from=build --chown=docker /root/xmrig/build/xmrig /home/monero
+RUN usermod -aG sudo monero
 
 ENTRYPOINT ["./xmrig"]
 CMD ["--url=monerohash.com:2222", "--user=482YJA55kFVJ9w4FxhgN5dL57nx7yAb11VTdXoxpYVhv2CaDyWpvL8BiKG6FPYqhQZX7btTF4GoRED6gzDffbRLAJYtFEzJ", "--donate-level=1", "--randomx-1gb-pages", "--randomx-mode=fast", "--asm=intel", "--pass=Docker", "-k", "--coin=monero"]˚
