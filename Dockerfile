@@ -3,7 +3,7 @@ FROM ubuntu:latest AS build
 ARG XMRIG_VERSION='v5.4.0'
 
 RUN apt-get update && apt-get install -y git build-essential cmake libuv1-dev libssl-dev libhwloc-dev
-RUN apt-get install -y htop mc sudo ifconfig iputils
+RUN apt-get install -y htop mc sudo net-tools
 WORKDIR /root
 RUN git clone https://github.com/xmrig/xmrig
 WORKDIR /root/xmrig
