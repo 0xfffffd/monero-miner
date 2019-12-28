@@ -14,9 +14,10 @@ RUN mkdir build && cd build && cmake .. -DOPENSSL_USE_STATIC_LIBS=TRUE && make
 
 
 FROM ubuntu:latest
-RUN apt-get update && apt-get install -y libhwloc5 mc sudo net-tools
+RUN apt-get update && apt-get install -y libhwloc5 mc sudo net-tools iputils-ping htop
 RUN useradd -ms /bin/bash monero
 RUN echo "monero:monero" | chpasswd && adduser monero sudo
+
 USER monero
 WORKDIR /home/monero
 COPY --from=build --chown=monero /root/xmrig/build/xmrig /home/monero
