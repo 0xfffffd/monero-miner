@@ -14,7 +14,8 @@ RUN mkdir build && cd build && cmake .. -DOPENSSL_USE_STATIC_LIBS=TRUE && make
 
 
 FROM ubuntu:latest
-RUN apt-get update && apt-get install -y libhwloc5 mc sudo net-tools iputils-ping htop
+RUN apt-get update && apt-get install -y libhwloc5 mc net-tools iputils-ping htop
+RUN apt-get -y install sudo
 RUN useradd -ms /bin/bash monero
 RUN echo "monero:monero" | chpasswd && adduser monero sudo
 
